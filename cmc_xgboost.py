@@ -26,11 +26,12 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=6)
 
     Logger.info("learn")
-    clf = xgb.XGBClassifier(n_estimators=200, learning_rate=0.05,
-                            objective='multi:softmax', max_depth=5,
-                            colsample_bytree=0.6, subsample=0.8, gamma=0.2,
-                            reg_alpha=0.8, min_child_weight=1, nthread=3,
-                            seed=17)
+    # clf = xgb.XGBClassifier(n_estimators=200, learning_rate=0.05,
+    #                         objective='multi:softmax', max_depth=5,
+    #                         colsample_bytree=0.6, subsample=0.8, gamma=0.2,
+    #                         reg_alpha=0.8, min_child_weight=1, nthread=3,
+    #                         seed=17)
+    clf = xgb.XGBClassifier(objective="multi:softmax", seed=17)
     score = cross_val_score(clf, X_train, y_train, cv=5)
     Logger.info("fit")
     clf.fit(X_train, y_train)
