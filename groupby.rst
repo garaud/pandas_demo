@@ -1,0 +1,68 @@
+GroupBy By Example
+==================
+
+| name  | sex | age | city     |
+|-------+-----+-----+----------|
+| john  | M   |  22 | NYC      |
+| alice | F   |  24 | Paris    |
+| bob   | M   |  19 | NYC      |
+| liam  | M   |  34 | Montreal |
+| lily  | F   |  33 | Paris    |
+| tessa | F   |  42 | NYC      |
+| jim   | M   |  37 | Montral  |
+
+Vous souhaitez "grouper" la colonne "sex" puis appliquer dessus une fonction
+d'aggrégation.
+
+**Deux valeurs** possibles : `F` et `M`
+=> **deux tableaux**
+
+
+Femme
+-----
+
+| name  | age | city  |
+|-------+-----+-------|
+| alice |  24 | Paris |
+| lily  |  33 | Paris |
+| tessa |  42 | NYC   |
+
+Homme
+-----
+
+| name | age | city     |
+|------+-----+----------|
+| john |  22 | NYC      |
+| bob  |  19 | NYC      |
+| liam |  34 | Montreal |
+| jim  |  37 | Montreal |
+
+Aggrégation
+-----------
+
+Vous avez une liste de valeurs
+=> on renvoie une seule valeur
+
+* moyenne
+* somme
+* comptage
+
+Le cas précédent (moyenne) :
+
+- `F` : (24 + 33 + 42) / 3 = 33
+- `M` : (22 + 19 + 34 + 37) / 4 = 28
+
+En **SQL** :
+
+::
+
+    SELECT sex,AVG(age) FROM table GROUP BY sex;
+
+En **pandas** :
+
+::
+
+    df.groupby('sex')['age'].mean()
+
+
+Et on peut faire pareil avec la colonne `city`.
