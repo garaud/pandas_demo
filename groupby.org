@@ -1,5 +1,5 @@
-GroupBy By Example
-==================
+#+TITLE: GroupBy par l'example
+
 
 | name  | sex | age | city     |
 |-------+-----+-----+----------|
@@ -14,12 +14,11 @@ GroupBy By Example
 Vous souhaitez "grouper" la colonne "sex" puis appliquer dessus une fonction
 d'aggrégation.
 
-**Deux valeurs** possibles : `F` et `M`
-=> **deux tableaux**
+*Deux valeurs* possibles : =F= et =M=
+=> *deux tableaux*
 
 
-Femme
------
+** Femme
 
 | name  | age | city  |
 |-------+-----+-------|
@@ -27,8 +26,7 @@ Femme
 | lily  |  33 | Paris |
 | tessa |  42 | NYC   |
 
-Homme
------
+** Homme
 
 | name | age | city     |
 |------+-----+----------|
@@ -37,32 +35,33 @@ Homme
 | liam |  34 | Montreal |
 | jim  |  37 | Montreal |
 
-Aggrégation
------------
+** Aggrégation
 
 Vous avez une liste de valeurs
 => on renvoie une seule valeur
 
-* moyenne
-* somme
-* comptage
+- moyenne
+- somme
+- comptage
 
 Le cas précédent (moyenne) :
 
-- `F` : (24 + 33 + 42) / 3 = 33
-- `M` : (22 + 19 + 34 + 37) / 4 = 28
+- =F= : (24 + 33 + 42) / 3 = 33
+- =M= : (22 + 19 + 34 + 37) / 4 = 28
 
-En **SQL** :
+En *SQL* :
 
-::
+#+BEGIN_SRC sql
+SELECT sex,AVG(age)
+FROM table
+GROUP BY sex;
+#+END_SRC
 
-    SELECT sex,AVG(age) FROM table GROUP BY sex;
+En *pandas* :
 
-En **pandas** :
-
-::
-
-    df.groupby('sex')['age'].mean()
+#+BEGIN_SRC python
+df.groupby('sex')['age'].mean()
+#+END_SRC
 
 
-Et on peut faire pareil avec la colonne `city`.
+Et on peut faire pareil avec la colonne =city=.
