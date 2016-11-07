@@ -9,7 +9,7 @@
 | liam  | M   |  34 | Montreal |
 | lily  | F   |  33 | Paris    |
 | tessa | F   |  42 | NYC      |
-| jim   | M   |  37 | Montral  |
+| jim   | M   |  37 | Montreal |
 
 Vous souhaitez "grouper" la colonne "sex" puis appliquer dessus une fonction
 d'aggrégation.
@@ -57,6 +57,14 @@ FROM table
 GROUP BY sex;
 #+END_SRC
 
+*output*
+
+| sex | age |
+|-----+-----|
+| F   |  33 |
+| M   |  28 |
+
+
 En *pandas* :
 
 #+BEGIN_SRC python
@@ -65,3 +73,9 @@ df.groupby('sex')['age'].mean()
 
 
 Et on peut faire pareil avec la colonne =city=.
+
+#+BEGIN_SRC python
+df.groupby('city')['age'].mean()
+# count the number of rows for each city
+df.groupby('city')['name'].count()
+#+END_SRC
