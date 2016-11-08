@@ -50,4 +50,6 @@ https://annuel.framapad.org/p/py-bdx
 
 https://github.com/garaud/pandas_demo
 
+<u>Merci à Armand pour son coup de main</u>
+
 Avoir : pandas, notebook, matplotlib, seaborn, requests et scikit-learn
