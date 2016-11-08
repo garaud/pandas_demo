@@ -22,3 +22,9 @@ environnement en faisant :
 puis l'activer en faisant `source activate pandas_demo`.
 
 Pour lancer le notebook, tapez `jupyter notebook` depuis la racine de ce projet.
+
+## Notebooks
+
+* `live.ipynb` le notebook "tutoriel" à compléter
+* `demo.ipynb` à rejouer chez vous (i.e. le complément du *live*)
+* `demo_with_outputs.ipynb` le même que le précédent avec tous les *outputs*
